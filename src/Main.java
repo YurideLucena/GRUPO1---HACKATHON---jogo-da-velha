@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 
 
-public class App {
+public class Main {
     // Estes caracteres são aceitos como caracteres para representarem
     // os jogadores. Utizado para evitar caracteres que não combinem com
     // o desenho do tabuleiro.
@@ -45,14 +45,14 @@ public class App {
             jogoContinua = true;
             exibirTabuleiro();
 
-            if (vezUsuarioJogar){
-               
-                //TODO 03: Execute a chamada processar vez do usuario
+            if (vezUsuarioJogar) {
+                System.out.println("Vez do usuário (" + caractereUsuario + "):");
+                //ADRIANA TODO 03: Execute a chamada processar vez do usuario
+                processarVezUsuario(caractereUsuario);
 
                 // Verifica se o usuario venceu
-                //TODO 04: Este if deve executar apenas se teve ganhador 
-                if ( /*TODO: esreva aqui a chamada para teveGanhador verificar se o usuário ganhou*/ ) {
-                    
+                //ADRIANA TODO 04: Este if deve executar apenas se teve ganhador 
+                if (teveGanhador(caractereUsuario)) {
                     exibirTabuleiro();
                     exibirVitoriaUsuario();
                     jogoContinua = false;
@@ -61,24 +61,25 @@ public class App {
                 // define que na proxima execucao do laco o jogador nao joga, ou seja, será a vez do computador
                 vezUsuarioJogar = false;
             } else {
-
-                //TODO 05: Execute a chamada processar vez do computador
-
+                System.out.println("Vez do computador (" + caractereComputador + "):");
+                //ADRIANA TODO 05: Execute a chamada processar vez do computador
+                processarVezComputador(caractereComputador);
                 // Verifica se o computador venceu
-                //TODO 06: Este if deve executar apenas se teve ganhador
-                if ( /*esreva aqui a chamada para teve ganhador*/ ) {
-
-                    //TODO 07: Exiba que o computador ganhou
+                //ADRIANA TODO 06: Este if deve executar apenas se teve ganhador
+                if (teveGanhador(caractereComputador)) {
+                    exibirTabuleiro();
+                    exibirVitoriaComputador();
+                    //ADRIANA TODO 07: Exiba que o computador ganhou
                     jogoContinua = false;
                 }
 
-                //TODO 08: defina qual o vaor a variavel abaixo deve possuir para que a proxima execucao do laco seja a vez do usuário
-                vezUsuarioJogar = ????;
+                //ADRIANA TODO 08: defina qual o vaor a variavel abaixo deve possuir para que a proxima execucao do laco seja a vez do usuário
+                vezUsuarioJogar = true;
             }
         
-            //TODO 09: Este if deve executar apenas se o jogo continua E 
+            //ADRIANA TODO 09: Este if deve executar apenas se o jogo continua E 
             //ocorreu tempate. Utilize o metodo teveEmpate()
-            if ( /*escreva aqui a condicao conforme o TODO acima*/ ) {
+            if (jogoContinua && teveEmpate()) {
                 exibirTabuleiro();
                 exibirEmpate();
                 jogoContinua = false;
@@ -262,7 +263,10 @@ caractereUsuario);
      * Nível de complexidade: 5 de 10
      */
     static void processarVezUsuario(char caractereUsuario) {
-        //TODO 17: Implementar método conforme explicação
+        //ADRIANA TODO 17: Implementar método conforme explicação
+        String livres = retornarPosicoesLivres();
+        int[] jogada = obterJogadaUsuario(livres , teclado);
+        atualizaTabuleiro(jogada, caractereUsuario);
     }
 
     /*
@@ -277,7 +281,10 @@ caractereUsuario);
      * Nível de complexidade: 10 de 10 se o computador for jogar para ganhar
      */
     static void processarVezComputador(char caractereComputador) {
-        //TODO 18: Implementar método conforme explicação
+        //ADRIANA TODO 18: Implementar método conforme explicação
+        String livres = retornarPosicoesLivres();
+        int[] jogada = obterJogadaComputador(livres , teclado);
+        atualizaTabuleiro(jogada, caractereComputador);
     }
 
     /*
