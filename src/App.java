@@ -51,7 +51,7 @@ public class App {
 
                 // Verifica se o usuario venceu
                 //TODO 04: Este if deve executar apenas se teve ganhador 
-                if ( /*TODO: esreva aqui a chamada para teveGanhador verificar se o usuário ganhou*/ ) {
+                if ( true ) {
                     
                     exibirTabuleiro();
                     exibirVitoriaUsuario();
