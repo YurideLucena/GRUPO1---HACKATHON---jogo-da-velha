@@ -143,7 +143,7 @@ public class Main {
     }
 
     //Descrição: Utilizado para validar se a jogada do usuário é uma jogada válida.
-    //TODO 13: Modificado por
+    //TODO 13: Modificado por Bruna
         static boolean jogadaValida(String posicoesLivres, int linha, int coluna) {
             String alvo = "" + linha + coluna + ";";
             return posicoesLivres.contains(alvo);    
@@ -197,7 +197,7 @@ public class Main {
     }
 
     //Descrição: Utilizado para obter do computador a linha e a coluna sorteada.
-    //TODO 15: Modificado por
+    //TODO 15: Modificado por Bruna
     static int[] obterJogadaComputador(String posicoesLivres, Scanner teclado) {
         Random random = new Random();
         String[] posicoes = posicoesLivres.split(";");
@@ -212,7 +212,7 @@ public class Main {
 
     //Descrição: Utilizado para converter uma jogada no formato xy (linha/coluna)
     //de string para um vetor de int. 
-    //TODO 16:Modificado por
+    //TODO 16:Modificado por Bruna
     static int[] converterJogadaStringParaVetorInt(String jogada) {
         
     int[] v = new int[2];
@@ -242,7 +242,7 @@ public class Main {
     }
 
     //Descrição: Utilizado para identificar a lista de posições livres no tabuleiro. 
-    //TODO 19: Modificado por
+    //TODO 19: Modificado por Bruna
     static String retornarPosicoesLivres() {
         String posicoes ="";
 
@@ -319,7 +319,7 @@ public class Main {
     //Descrição: Utilizado para imprimir o tabuleiro o conteúdo do tabuleiro na
     //tela. Recebe o tabuleiro como parametro e imprime o conteúdo de cada posição
     //do tabuleiro na tela. Imprime o conteúdo no formato de uma grade. */
-    //TODO 26: Modificado por ADRIANA 
+    //TODO 26: Modificado por ADRIANA / Bruna
     static void exibirTabuleiro() {
      
         limparTela();
@@ -349,7 +349,7 @@ public class Main {
 
     //Descrição: Utilizado para atualizar o tabuleiro com o caractere que
     //identifica o jogador. 
-    //TODO 27: Modificado por
+    //TODO 27: Modificado por Bruna
     static void atualizaTabuleiro(int[] jogada, char caractereJogador) {
         int linha = jogada[0];
         int coluna = jogada[1];
@@ -399,7 +399,7 @@ public class Main {
     }
 
     //Descrição: Utilizado para analisar se ocorreu empate no jogo. 
-    //TODO 31: Modificado por
+    //TODO 31: Modificado por Bruna
     static boolean teveEmpate() {
         String posicoes = retornarPosicoesLivres();
         return posicoes.isEmpty();        
@@ -409,7 +409,7 @@ public class Main {
     //Descrição: Utilizado para realizar o sorteio de um valor booleano. Este
     //método deve sortear um valor entre true ou false. Este valor será
     //utilizado para identificar quem começa a jogar. 
-    //TODO 32: Modificado por
+    //TODO 32: Modificado por Bruna
     static boolean sortearValorBooleano() {
         Random random = new Random();
         return random.nextBoolean();
